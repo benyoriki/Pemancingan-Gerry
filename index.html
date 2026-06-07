@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pemancingan Gerry – Ikan Jabrukan | Depok 24 Jam</title>
+  <meta name="description" content="Pemancingan Gerry (Ikan Jabrukan) – Tempat mancing terbaik di Depok, buka 24 jam. Ikan campur, suasana nyaman, cocok untuk keluarga & komunitas." />
+  <meta name="keywords" content="pemancingan depok, mancing depok, kolam pancing, ikan jabrukan, pemancingan gerry, mancing 24 jam" />
+  <meta property="og:title" content="Pemancingan Gerry – Ikan Jabrukan | Depok 24 Jam" />
+  <meta property="og:description" content="Tempat mancing terbaik di Depok. Buka 24 jam, ikan besar, suasana nyaman untuk keluarga & komunitas." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Pemancingan Gerry (Ikan Jabrukan)","telephone":"+6208965658966","address":{"@type":"PostalAddress","streetAddress":"Duren Mekar, Bojongsari","addressLocality":"Depok","addressRegion":"Jawa Barat","addressCountry":"ID"},"openingHours":"Mo-Su 00:00-24:00"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎣</text></svg>" />
+</head>
+<body>
+
+<!-- Overlay gelap untuk menu mobile -->
+<div id="nav-overlay" class="nav-overlay"></div>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loading-screen">
+  <div class="loader-content">
+    <div class="loader-fish">🎣</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <p class="loader-text">Memuat Pengalaman Mancing Terbaik...</p>
+  </div>
+</div>
+
+<!-- ========== PROMO BAR ========== -->
+<div id="promo-bar">
+  <span>🎉 Promo Spesial! Paket Komunitas 10+ orang diskon 20% — Hubungi WhatsApp sekarang!</span>
+  <button id="promo-close" aria-label="Tutup"><i class="fa fa-times"></i></button>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#beranda" class="nav-logo">
+      <span class="logo-icon">🎣</span>
+      <div class="logo-text">
+        <span class="logo-main">Pemancingan Gerry</span>
+        <span class="logo-sub">Ikan Jabrukan</span>
+      </div>
+    </a>
+
+    <!-- Menu Desktop + Drawer Mobile -->
+    <ul class="nav-menu" id="nav-menu">
+      <!-- Header hanya tampil di mobile -->
+      <li class="nav-menu-header">
+        <span>Menu Navigasi</span>
+        <button id="nav-menu-close" class="nav-menu-close" aria-label="Tutup menu"><i class="fa fa-times"></i></button>
+      </li>
+      <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+      <li><a href="#tentang" class="nav-link">Tentang</a></li>
+      <li><a href="#kolam"   class="nav-link">Kolam</a></li>
+      <li><a href="#galeri"  class="nav-link">Galeri</a></li>
+      <li><a href="#harga"   class="nav-link">Harga</a></li>
+      <li><a href="#event"   class="nav-link">Event</a></li>
+      <li><a href="#lokasi"  class="nav-link">Lokasi</a></li>
+      <li><a href="#kontak"  class="nav-link">Kontak</a></li>
+      <!-- Actions khusus mobile di dalam menu -->
+      <li class="nav-menu-actions">
+        <button id="theme-toggle-mob" class="theme-btn-mob">
+          <span id="tb-icon-mob">🌙</span>
+          <span id="tb-label-mob">Ganti ke Mode Terang</span>
+        </button>
+        <button class="admin-nav-btn-mob" id="admin-login-btn-mob">
+          <i class="fa fa-lock"></i> Login Admin
+        </button>
+      </li>
+    </ul>
+
+    <!-- Actions Desktop -->
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Ganti tema">
+        <span class="tb-icon" id="tb-icon">🌙</span>
+        <span class="tb-label" id="tb-label">Mode Gelap</span>
+      </button>
+      <button class="admin-nav-btn" id="admin-login-btn" aria-label="Admin">
+        <i class="fa fa-lock"></i><span>Admin</span>
+      </button>
+      <button id="hamburger" class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section id="beranda" class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1597466765683-c3b9e20bd3b9?w=1800&q=80" alt="Danau pemancingan" class="hero-img" loading="eager" />
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+  </div>
+  <div class="hero-content">
+    <div class="live-clock">
+      <span id="clock-time">00:00:00</span>
+      <span class="clock-label">Buka Sekarang 24 Jam</span>
+    </div>
+    <div class="hero-badge reveal-up">⭐ Pemancingan #1 di Depok</div>
+    <h1 class="hero-title reveal-up">
+      Tempat Pemancingan<br/>
+      <span class="gradient-text">Favorit 24 Jam</span><br/>di Depok
+    </h1>
+    <p class="hero-sub reveal-up">
+      Rasakan sensasi <em>strike ikan besar</em> dengan suasana nyaman,
+      santai, dan modern. Cocok untuk keluarga &amp; komunitas.
+    </p>
+    <div class="hero-buttons reveal-up">
+      <a href="#harga" class="btn btn-primary ripple">
+        <i class="fa fa-calendar-check"></i> Booking Sekarang
+      </a>
+      <a href="https://maps.app.goo.gl/AV6HRKoSxgURWzNt9" target="_blank" rel="noopener" class="btn btn-glass ripple">
+        <i class="fa fa-map-marker-alt"></i> Lihat Lokasi
+      </a>
+      <a href="https://wa.me/6208965658966?text=Halo%2C%20saya%20ingin%20info%20pemancingan%20Gerry" target="_blank" rel="noopener" class="btn btn-wa ripple">
+        <i class="fab fa-whatsapp"></i> WhatsApp Admin
+      </a>
+    </div>
+    <div class="hero-stats reveal-up">
+      <div class="stat">
+        <span class="stat-num" data-target="500">0</span><span>+</span>
+        <span class="stat-label">Member Aktif</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="24">0</span><span>Jam</span>
+        <span class="stat-label">Buka Tiap Hari</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="5">0</span><span>+</span>
+        <span class="stat-label">Jenis Kolam</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Gulir ke bawah</span>
+    <div class="scroll-arrow"><i class="fa fa-chevron-down"></i></div>
+  </div>
+</section>
+
+<!-- ========== TENTANG ========== -->
+<section id="tentang" class="section tentang-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Tentang Kami</span>
+      <h2 class="section-title">Pemancingan Gerry<br/><span class="gradient-text">Ikan Jabrukan</span></h2>
+      <p class="section-desc">Destinasi mancing keluarga yang nyaman, modern, dan buka sepanjang waktu di jantung Depok.</p>
+    </div>
+    <div class="tentang-grid">
+      <div class="tentang-visual reveal-left">
+        <div class="img-frame">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=80" alt="Suasana pemancingan" loading="lazy" />
+          <div class="img-badge"><span>⭐ 4.9</span><span>Rating Google</span></div>
+        </div>
+        <div class="float-card">
+          <i class="fa fa-fish"></i>
+          <div><strong>Ikan Segar</strong><span>Dipanen langsung dari kolam</span></div>
+        </div>
+      </div>
+      <div class="tentang-info reveal-right">
+        <p class="tentang-lead">Sejak pertama berdiri, <strong>Pemancingan Gerry</strong> hadir untuk memberikan pengalaman mancing yang tak terlupakan bagi siapa saja — dari pemula hingga profesional.</p>
+        <p>Berlokasi di <strong>Duren Mekar, Bojongsari, Depok</strong>, kami menawarkan suasana alami yang sejuk dengan kolam-kolam ikan berkualitas, fasilitas modern, dan layanan ramah.</p>
+        <div class="tentang-features">
+          <div class="tf-item"><div class="tf-icon">🕐</div><div><strong>Buka 24 Jam</strong><span>Mancing kapan saja, bahkan tengah malam</span></div></div>
+          <div class="tf-item"><div class="tf-icon">👨‍👩‍👧‍👦</div><div><strong>Family Friendly</strong><span>Area aman dan nyaman untuk semua usia</span></div></div>
+          <div class="tf-item"><div class="tf-icon">🏆</div><div><strong>Event &amp; Lomba</strong><span>Turnamen mancing reguler dengan hadiah menarik</span></div></div>
+          <div class="tf-item"><div class="tf-icon">🐟</div><div><strong>Ikan Beragam</strong><span>Patin, lele, gurame, nila, mas, dan banyak lagi</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KEUNGGULAN ========== -->
+<section class="section keunggulan-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Kenapa Kami?</span>
+      <h2 class="section-title">Keunggulan <span class="gradient-text">Pemancingan Gerry</span></h2>
+    </div>
+    <div class="keunggulan-grid">
+      <div class="k-card reveal-up" style="--delay:0s">   <div class="k-icon">⏰</div><h3>Buka 24 Jam</h3>   <p>Tidak ada batasan waktu. Mancing malam pun bisa!</p></div>
+      <div class="k-card reveal-up" style="--delay:.07s"> <div class="k-icon">🐠</div><h3>Ikan Besar</h3>    <p>Ikan jumbo siap memberikan sensasi strike luar biasa.</p></div>
+      <div class="k-card reveal-up" style="--delay:.14s"> <div class="k-icon">🌿</div><h3>Area Hijau</h3>    <p>Suasana alami yang segar, teduh, dan menyenangkan.</p></div>
+      <div class="k-card reveal-up" style="--delay:.21s"> <div class="k-icon">🚗</div><h3>Parkir Luas</h3>   <p>Area parkir memadai untuk motor dan mobil.</p></div>
+      <div class="k-card reveal-up" style="--delay:.28s"> <div class="k-icon">🛖</div><h3>Gazebo &amp; Saung</h3><p>Tempat bersantai nyaman dengan view kolam.</p></div>
+      <div class="k-card reveal-up" style="--delay:.35s"> <div class="k-icon">👨‍👩‍👧</div><h3>Cocok Keluarga</h3><p>Aktivitas seru untuk semua anggota keluarga.</p></div>
+      <div class="k-card reveal-up" style="--delay:.42s"> <div class="k-icon">🍜</div><h3>Warung Makan</h3>  <p>Tersedia makanan dan minuman lezat di area mancing.</p></div>
+      <div class="k-card reveal-up" style="--delay:.49s"> <div class="k-icon">🌙</div><h3>Spot Malam</h3>    <p>Pencahayaan terbaik untuk mancing malam hari.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KOLAM ========== -->
+<section id="kolam" class="section kolam-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Pilihan Kolam</span>
+      <h2 class="section-title">Kolam <span class="gradient-text">Kami</span></h2>
+      <p class="section-desc">Berbagai pilihan kolam dengan ikan segar siap menantang kemampuan mancing Anda.</p>
+    </div>
+    <div class="kolam-slider-wrap">
+      <div class="kolam-slider" id="kolam-slider">
+        <div class="kolam-card">
+          <div class="kolam-img-wrap"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Kolam Harian" loading="lazy"/><div class="kolam-badge">🔥 Terpopuler</div></div>
+          <div class="kolam-info"><h3>Kolam Harian</h3><div class="kolam-meta"><span><i class="fa fa-fish"></i> Ikan Campur</span><span><i class="fa fa-users"></i> 30 Orang</span><span><i class="fa fa-clock"></i> 24 Jam</span></div><p>Kolam utama dengan berbagai jenis ikan pilihan. Cocok untuk semua level.</p><div class="kolam-price"><span class="price">Rp 30.000</span><span class="price-unit">/ sesi</span></div><a href="https://wa.me/6208965658966?text=Pesan+Kolam+Harian" target="_blank" class="btn btn-sm btn-primary ripple">Booking</a></div>
+        </div>
+        <div class="kolam-card">
+          <div class="kolam-img-wrap"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Kolam Patin" loading="lazy"/></div>
+          <div class="kolam-info"><h3>Kolam Patin</h3><div class="kolam-meta"><span><i class="fa fa-fish"></i> Ikan Patin</span><span><i class="fa fa-users"></i> 20 Orang</span><span><i class="fa fa-clock"></i> 24 Jam</span></div><p>Khusus ikan patin ukuran besar. Sensasi tarikan kuat yang menguji kesabaran.</p><div class="kolam-price"><span class="price">Rp 35.000</span><span class="price-unit">/ sesi</span></div><a href="https://wa.me/6208965658966?text=Pesan+Kolam+Patin" target="_blank" class="btn btn-sm btn-primary ripple">Booking</a></div>
+        </div>
+        <div class="kolam-card">
+          <div class="kolam-img-wrap"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&q=80" alt="Kolam Gurame" loading="lazy"/></div>
+          <div class="kolam-info"><h3>Kolam Gurame</h3><div class="kolam-meta"><span><i class="fa fa-fish"></i> Gurame</span><span><i class="fa fa-users"></i> 15 Orang</span><span><i class="fa fa-clock"></i> 06:00–22:00</span></div><p>Gurame jumbo segar. Favorit pemancing keluarga.</p><div class="kolam-price"><span class="price">Rp 40.000</span><span class="price-unit">/ sesi</span></div><a href="https://wa.me/6208965658966?text=Pesan+Kolam+Gurame" target="_blank" class="btn btn-sm btn-primary ripple">Booking</a></div>
+        </div>
+        <div class="kolam-card">
+          <div class="kolam-img-wrap"><img src="https://images.unsplash.com/photo-1484517586070-9da32b6e6e53?w=600&q=80" alt="Kolam Lele" loading="lazy"/></div>
+          <div class="kolam-info"><h3>Kolam Lele</h3><div class="kolam-meta"><span><i class="fa fa-fish"></i> Ikan Lele</span><span><i class="fa fa-users"></i> 25 Orang</span><span><i class="fa fa-clock"></i> 24 Jam</span></div><p>Cocok untuk pemula. Ikan lele aktif sepanjang waktu, sering strike!</p><div class="kolam-price"><span class="price">Rp 25.000</span><span class="price-unit">/ sesi</span></div><a href="https://wa.me/6208965658966?text=Pesan+Kolam+Lele" target="_blank" class="btn btn-sm btn-primary ripple">Booking</a></div>
+        </div>
+        <div class="kolam-card">
+          <div class="kolam-img-wrap"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&q=80" alt="Kolam Campur" loading="lazy"/><div class="kolam-badge kolam-badge-blue">🌟 Baru!</div></div>
+          <div class="kolam-info"><h3>Kolam Campur Premium</h3><div class="kolam-meta"><span><i class="fa fa-fish"></i> Multi-Ikan</span><span><i class="fa fa-users"></i> 40 Orang</span><span><i class="fa fa-clock"></i> 24 Jam</span></div><p>Pengalaman mancing lengkap — berbagai ikan dalam satu kolam premium.</p><div class="kolam-price"><span class="price">Rp 50.000</span><span class="price-unit">/ sesi</span></div><a href="https://wa.me/6208965658966?text=Pesan+Kolam+Campur+Premium" target="_blank" class="btn btn-sm btn-primary ripple">Booking</a></div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="kolam-prev"><i class="fa fa-chevron-left"></i></button>
+        <div class="slider-dots" id="kolam-dots"></div>
+        <button class="slider-btn" id="kolam-next"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALERI ========== -->
+<section id="galeri" class="section galeri-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Galeri Foto</span>
+      <h2 class="section-title">Momen <span class="gradient-text">Terbaik</span></h2>
+      <p class="section-desc">Lihat keseruan dan keindahan suasana Pemancingan Gerry.</p>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item reveal-up" data-src="https://images.unsplash.com/photo-1597466765683-c3b9e20bd3b9?w=1200&q=90" style="--delay:0s"><img src="https://images.unsplash.com/photo-1597466765683-c3b9e20bd3b9?w=600&q=80" alt="Strike ikan" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Strike Ikan Besar</span></div></div>
+      <div class="galeri-item reveal-up" data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=90" style="--delay:.07s"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Suasana kolam" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Suasana Kolam</span></div></div>
+      <div class="galeri-item reveal-up" data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=90" style="--delay:.14s"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Mancing malam" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Spot Malam</span></div></div>
+      <div class="galeri-item reveal-up galeri-wide" data-src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=90" style="--delay:.21s"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=900&q=80" alt="Panorama" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Panorama Danau</span></div></div>
+      <div class="galeri-item reveal-up" data-src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&q=90" style="--delay:.28s"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&q=80" alt="Komunitas" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Komunitas Mancing</span></div></div>
+      <div class="galeri-item reveal-up" data-src="https://images.unsplash.com/photo-1484517586070-9da32b6e6e53?w=1200&q=90" style="--delay:.35s"><img src="https://images.unsplash.com/photo-1484517586070-9da32b6e6e53?w=600&q=80" alt="Hasil tangkapan" loading="lazy"/><div class="galeri-overlay"><i class="fa fa-expand"></i><span>Hasil Tangkapan</span></div></div>
+    </div>
+  </div>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button id="lb-close" class="lb-close"><i class="fa fa-times"></i></button>
+    <button id="lb-prev" class="lb-nav lb-prev-btn"><i class="fa fa-chevron-left"></i></button>
+    <img id="lb-img" src="" alt="Galeri" />
+    <button id="lb-next" class="lb-nav lb-next-btn"><i class="fa fa-chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- ========== HARGA ========== -->
+<section id="harga" class="section harga-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Harga &amp; Paket</span>
+      <h2 class="section-title">Pilihan <span class="gradient-text">Paket</span></h2>
+      <p class="section-desc">Harga terjangkau dengan kualitas premium. Pilih paket yang paling sesuai kebutuhanmu.</p>
+    </div>
+    <div class="harga-grid">
+      <div class="harga-card reveal-up" style="--delay:0s">
+        <div class="harga-icon">☀️</div><h3>Paket Harian</h3>
+        <div class="harga-price"><span class="price-main">Rp 30.000</span><span class="price-sub">/ orang / hari</span></div>
+        <ul class="harga-list">
+          <li><i class="fa fa-check"></i> Akses kolam harian</li>
+          <li><i class="fa fa-check"></i> Tempat duduk &amp; payung</li>
+          <li><i class="fa fa-check"></i> Buka 24 jam</li>
+          <li><i class="fa fa-check"></i> Parkir gratis</li>
+          <li class="disabled"><i class="fa fa-times"></i> Gazebo private</li>
+          <li class="disabled"><i class="fa fa-times"></i> Konsumsi included</li>
+        </ul>
+        <a href="https://wa.me/6208965658966?text=Paket+Harian" target="_blank" class="btn btn-outline ripple">Pilih Paket</a>
+      </div>
+      <div class="harga-card popular reveal-up" style="--delay:.1s">
+        <div class="popular-badge">🔥 Paling Populer</div>
+        <div class="harga-icon">🌙</div><h3>Paket Malam</h3>
+        <div class="harga-price"><span class="price-main">Rp 45.000</span><span class="price-sub">/ orang / malam</span></div>
+        <ul class="harga-list">
+          <li><i class="fa fa-check"></i> Akses semua kolam</li>
+          <li><i class="fa fa-check"></i> Pencahayaan premium</li>
+          <li><i class="fa fa-check"></i> 18:00 – 06:00</li>
+          <li><i class="fa fa-check"></i> Parkir gratis</li>
+          <li><i class="fa fa-check"></i> Snack malam</li>
+          <li class="disabled"><i class="fa fa-times"></i> Gazebo private</li>
+        </ul>
+        <a href="https://wa.me/6208965658966?text=Paket+Malam" target="_blank" class="btn btn-primary ripple">Pilih Paket</a>
+      </div>
+      <div class="harga-card reveal-up" style="--delay:.2s">
+        <div class="harga-icon">👥</div><h3>Paket Komunitas</h3>
+        <div class="harga-price"><span class="price-main">Rp 250.000</span><span class="price-sub">/ grup (10+ orang)</span></div>
+        <ul class="harga-list">
+          <li><i class="fa fa-check"></i> Akses semua kolam</li>
+          <li><i class="fa fa-check"></i> Gazebo group</li>
+          <li><i class="fa fa-check"></i> 24 jam penuh</li>
+          <li><i class="fa fa-check"></i> Parkir gratis</li>
+          <li><i class="fa fa-check"></i> Konsumsi group</li>
+          <li><i class="fa fa-check"></i> Instruktur mancing</li>
+        </ul>
+        <a href="https://wa.me/6208965658966?text=Paket+Komunitas" target="_blank" class="btn btn-outline ripple">Pilih Paket</a>
+      </div>
+      <div class="harga-card reveal-up" style="--delay:.3s">
+        <div class="harga-icon">🛖</div><h3>Sewa Gazebo</h3>
+        <div class="harga-price"><span class="price-main">Rp 100.000</span><span class="price-sub">/ unit / hari</span></div>
+        <ul class="harga-list">
+          <li><i class="fa fa-check"></i> Gazebo private</li>
+          <li><i class="fa fa-check"></i> Kapasitas 6 orang</li>
+          <li><i class="fa fa-check"></i> View kolam terbaik</li>
+          <li><i class="fa fa-check"></i> Listrik &amp; colokan</li>
+          <li><i class="fa fa-check"></i> Meja &amp; kursi</li>
+          <li><i class="fa fa-check"></i> Lampu malam</li>
+        </ul>
+        <a href="https://wa.me/6208965658966?text=Sewa+Gazebo" target="_blank" class="btn btn-outline ripple">Pilih Paket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONI ========== -->
+<section class="section testimoni-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Ulasan Pelanggan</span>
+      <h2 class="section-title">Kata Mereka <span class="gradient-text">Tentang Kami</span></h2>
+    </div>
+    <div class="testi-slider-wrap reveal-up">
+      <div class="testi-slider" id="testi-slider">
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Tempat nyaman banget, kolamnya banyak dan ikan melimpah. Keluarga saya sangat senang mancing di sini. Pasti balik lagi!"</p><div class="testi-author"><div class="testi-avatar">B</div><div><strong>Budi Santoso</strong><span>Pemancing Keluarga · Depok</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Strike terus dari sore sampai malam! Ikan-ikannya besar dan segar. Pencahayaan malam juga bagus."</p><div class="testi-author"><div class="testi-avatar">R</div><div><strong>Rizky Pratama</strong><span>Komunitas Mancing · Bogor</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Cocok buat healing sambil mancing. Suasananya adem dan hijau. Warungnya juga enak, murah meriah."</p><div class="testi-author"><div class="testi-avatar">S</div><div><strong>Sari Dewi</strong><span>Pecinta Alam · Bekasi</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Sering bawa komunitas ke sini. Pelayanannya ramah, tempatnya bersih. Harga paket komunitas sangat worth it!"</p><div class="testi-author"><div class="testi-avatar">A</div><div><strong>Ahmad Fauzi</strong><span>Ketua Komunitas · Tangerang</span></div></div></div>
+        <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Mancing malam di sini itu surga! Suasananya tenang, bintang keliatan, ikan pada aktif. Tidak terlupakan."</p><div class="testi-author"><div class="testi-avatar">D</div><div><strong>Dian Wijaya</strong><span>Night Fishing Enthusiast · Depok</span></div></div></div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="testi-prev"><i class="fa fa-chevron-left"></i></button>
+        <div class="slider-dots" id="testi-dots"></div>
+        <button class="slider-btn" id="testi-next"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EVENT ========== -->
+<section id="event" class="section event-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Event &amp; Lomba</span>
+      <h2 class="section-title">Event <span class="gradient-text">Mendatang</span></h2>
+      <p class="section-desc">Ikuti lomba mancing seru dengan hadiah total jutaan rupiah!</p>
+    </div>
+    <div class="event-admin-bar reveal-up">
+      <div class="event-admin-hint" id="event-admin-hint" style="display:none">
+        <i class="fa fa-shield-halved"></i>
+        Mode Admin Aktif — Klik ✏️ edit, 🗑️ hapus, atau tambah event baru di bawah.
+      </div>
+    </div>
+    <div class="event-countdown reveal-up">
+      <div class="countdown-label" id="countdown-label">⏳ Event Terdekat — Mulai dalam:</div>
+      <div class="countdown-timer">
+        <div class="cd-unit"><span id="cd-days">00</span><span>Hari</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-hours">00</span><span>Jam</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-mins">00</span><span>Menit</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span id="cd-secs">00</span><span>Detik</span></div>
+      </div>
+    </div>
+    <div class="event-grid" id="event-grid"></div>
+    <button class="add-event-btn" id="add-event-btn">
+      <i class="fa fa-plus"></i> Tambah Event Baru
+    </button>
+  </div>
+</section>
+
+<!-- ========== LOKASI ========== -->
+<section id="lokasi" class="section lokasi-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Temukan Kami</span>
+      <h2 class="section-title">Lokasi <span class="gradient-text">Kami</span></h2>
+    </div>
+    <div class="lokasi-grid">
+      <div class="lokasi-info reveal-left">
+        <div class="info-card">
+          <div class="info-item"><div class="info-icon"><i class="fa fa-map-marker-alt"></i></div><div><strong>Alamat</strong><span>Duren Mekar, Bojongsari,<br/>Depok, Jawa Barat</span></div></div>
+          <div class="info-item"><div class="info-icon"><i class="fa fa-clock"></i></div><div><strong>Jam Operasional</strong><span>Buka 24 Jam — 7 Hari Seminggu</span></div></div>
+          <div class="info-item"><div class="info-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp</strong><span>0896-5658-9661</span></div></div>
+        </div>
+        <div class="lokasi-buttons">
+          <a href="https://maps.app.goo.gl/AV6HRKoSxgURWzNt9" target="_blank" rel="noopener" class="btn btn-primary ripple"><i class="fa fa-map"></i> Buka Google Maps</a>
+          <a href="https://wa.me/6208965658966?text=Halo%2C+minta+petunjuk+arah+ke+Pemancingan+Gerry" target="_blank" rel="noopener" class="btn btn-wa ripple"><i class="fab fa-whatsapp"></i> Tanya Arah</a>
+        </div>
+      </div>
+      <div class="lokasi-map reveal-right">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.99!2d106.7542!3d-6.4183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e9a1b7a0d3c5%3A0x1!2sDuren+Mekar%2C+Bojongsari%2C+Depok!5e0!3m2!1sid!2sid!4v1700000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Pemancingan Gerry"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== KONTAK ========== -->
+<section id="kontak" class="section kontak-section">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label">Hubungi Kami</span>
+      <h2 class="section-title">Kirim <span class="gradient-text">Pesan</span></h2>
+      <p class="section-desc">Ada pertanyaan atau ingin booking? Hubungi kami langsung via WhatsApp!</p>
+    </div>
+    <div class="kontak-wrap reveal-up">
+      <div class="kontak-form-card">
+        <div class="form-group"><label for="nama">Nama Lengkap</label><input type="text" id="nama" placeholder="Masukkan nama Anda" autocomplete="name"/></div>
+        <div class="form-group"><label for="hp">Nomor HP / WhatsApp</label><input type="tel" id="hp" placeholder="Contoh: 08123456789" autocomplete="tel"/></div>
+        <div class="form-group"><label for="pesan">Pesan</label><textarea id="pesan" rows="4" placeholder="Tulis pesan, pertanyaan, atau booking Anda..."></textarea></div>
+        <button id="send-wa" class="btn btn-wa ripple" style="width:100%;justify-content:center">
+          <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+        </button>
+        <p class="form-note">* Pesan akan langsung dikirim ke WhatsApp admin kami.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-glow"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="fl-icon">🎣</span>
+          <div class="footer-logo-text"><strong>Pemancingan Gerry</strong><span>Ikan Jabrukan</span></div>
+        </div>
+        <p>Destinasi mancing keluarga terbaik di Depok. Buka 24 jam, ikan segar, suasana nyaman.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/6208965658966" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li><li><a href="#tentang">Tentang</a></li>
+          <li><a href="#kolam">Kolam</a></li><li><a href="#galeri">Galeri</a></li>
+          <li><a href="#harga">Harga</a></li><li><a href="#event">Event</a></li>
+          <li><a href="#lokasi">Lokasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Kontak</h4>
+        <p><i class="fa fa-map-marker-alt"></i> Duren Mekar, Bojongsari, Depok, Jawa Barat</p>
+        <p><i class="fab fa-whatsapp"></i> 0896-5658-9661</p>
+        <p><i class="fa fa-clock"></i> Buka 24 Jam</p>
+        <a href="https://maps.app.goo.gl/AV6HRKoSxgURWzNt9" target="_blank" class="btn btn-sm btn-outline"><i class="fa fa-map"></i> Google Maps</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Pemancingan Gerry (Ikan Jabrukan). Semua Hak Dilindungi.</p>
+      <p>Dibuat dengan ❤️ untuk para pemancing Depok</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FLOATING BUTTONS ========== -->
+<a href="https://wa.me/6208965658966?text=Halo%2C%20saya%20ingin%20info%20tentang%20Pemancingan%20Gerry" target="_blank" rel="noopener" class="float-wa" aria-label="Chat WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+  <span class="float-wa-tooltip">Chat WhatsApp</span>
+</a>
+<button id="back-to-top" aria-label="Ke atas"><i class="fa fa-chevron-up"></i></button>
+
+<!-- Admin topbar -->
+<div id="admin-topbar">
+  <div class="admin-topbar-left"><i class="fa fa-shield-halved"></i> Mode Admin Aktif — Tambah, edit, dan hapus event sesuka Anda.</div>
+  <div class="admin-topbar-right">
+    <button class="admin-exit-btn" id="admin-logout-btn"><i class="fa fa-right-from-bracket"></i> Keluar Admin</button>
+  </div>
+</div>
+
+<!-- ========== MODAL: LOGIN ========== -->
+<div class="modal-overlay" id="modal-login">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>🔐 Login Admin</h3>
+      <button class="modal-close" data-modal="modal-login"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="modal-form">
+      <div class="form-group"><label>Username</label><input type="text" id="login-user" placeholder="Masukkan username" autocomplete="username"/></div>
+      <div class="form-group"><label>Password</label><input type="password" id="login-pass" placeholder="Masukkan password" autocomplete="current-password"/></div>
+      <p id="login-error" style="color:#ef4444;font-size:13px;display:none"><i class="fa fa-circle-exclamation"></i> Username atau password salah.</p>
+      <div class="modal-footer">
+        <button class="btn btn-outline ripple" data-modal="modal-login">Batal</button>
+        <button class="btn btn-primary ripple" id="do-login"><i class="fa fa-right-to-bracket"></i> Login</button>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:8px">Default login: <strong>admin</strong> / <strong>gerry2025</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL: TAMBAH/EDIT EVENT ========== -->
+<div class="modal-overlay" id="modal-event">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="modal-event-title">➕ Tambah Event</h3>
+      <button class="modal-close" data-modal="modal-event"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="modal-form">
+      <input type="hidden" id="ev-id"/>
+      <div class="form-group"><label>Judul Event</label><input type="text" id="ev-judul" placeholder="Contoh: Turnamen Mancing Bulanan"/></div>
+      <div class="form-group"><label>Tanggal</label><input type="date" id="ev-tanggal"/></div>
+      <div class="form-group"><label>Kategori</label>
+        <select id="ev-kategori">
+          <option value="🏆 Lomba">🏆 Lomba</option>
+          <option value="👨‍👩‍👧 Family">👨‍👩‍👧 Family</option>
+          <option value="🌙 Malam">🌙 Malam</option>
+          <option value="🎉 Spesial">🎉 Spesial</option>
+          <option value="🤝 Komunitas">🤝 Komunitas</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Deskripsi</label><textarea id="ev-deskripsi" rows="3" placeholder="Deskripsi singkat event..."></textarea></div>
+      <div class="form-group"><label>Info Hadiah / Detail 1</label><input type="text" id="ev-detail1" placeholder="Contoh: Hadiah Rp 5 Juta"/></div>
+      <div class="form-group"><label>Info Peserta / Detail 2</label><input type="text" id="ev-detail2" placeholder="Contoh: Maks. 50 Peserta"/></div>
+      <div class="modal-footer">
+        <button class="btn btn-outline ripple" data-modal="modal-event">Batal</button>
+        <button class="btn btn-primary ripple" id="do-save-event"><i class="fa fa-floppy-disk"></i> Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODAL: KONFIRMASI HAPUS ========== -->
+<div class="modal-overlay" id="modal-delete">
+  <div class="modal-box" style="max-width:360px">
+    <div class="modal-header">
+      <h3>🗑️ Hapus Event?</h3>
+      <button class="modal-close" data-modal="modal-delete"><i class="fa fa-times"></i></button>
+    </div>
+    <p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px;line-height:1.6">Event ini akan dihapus permanen dari daftar. Yakin ingin melanjutkan?</p>
+    <div class="modal-footer">
+      <button class="btn btn-outline ripple" data-modal="modal-delete">Batal</button>
+      <button class="btn btn-danger ripple" id="do-delete-event"><i class="fa fa-trash"></i> Ya, Hapus</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Notifikasi Promo Benyoriki.com -->
+<script src="notif-promo.js"></script>
+</body>
+</html>

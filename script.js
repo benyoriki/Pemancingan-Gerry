@@ -344,6 +344,30 @@ function closeNavMenu(){
    ============================================================ */
 document.addEventListener('DOMContentLoaded',()=>{
 
+  /* IMAGE FALLBACK — jika gambar gagal / lambat dimuat (koneksi lemah),
+     ganti otomatis dengan placeholder gradient + ikon ikan, bukan kotak
+     rusak bawaan browser. Berlaku untuk semua <img> di halaman. */
+  const FALLBACK_SVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="450">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#0e3a2c"/><stop offset="100%" stop-color="#0c2a3d"/>
+      </linearGradient></defs>
+      <rect width="600" height="450" fill="url(#g)"/>
+      <text x="300" y="235" font-size="64" text-anchor="middle" dominant-baseline="middle">🐟</text>
+    </svg>`
+  );
+  function markFallback(img){
+    if(img.dataset.fb) return;
+    img.dataset.fb='1';
+    img.src=FALLBACK_SVG;
+    img.classList.add('img-fallback');
+    img.removeAttribute('srcset');
+  }
+  document.querySelectorAll('img').forEach(img=>{
+    if(img.complete && img.naturalWidth===0 && img.src) markFallback(img);
+    img.addEventListener('error',()=>markFallback(img));
+  });
+
   /* THEME INIT */
   const savedTheme=localStorage.getItem('pg_theme')||'dark';
   applyTheme(savedTheme);
@@ -362,9 +386,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     setTimeout(()=>{loading.classList.add('hidden');document.body.style.overflow='';},2200);
   }
 
-  /* PROMO BAR */
+  /* PROMO BAR — sinkronkan tinggi promo-bar ke variabel CSS supaya
+     navbar & menu TIDAK PERNAH tertindih/terhalang olehnya (bug lama). */
+  function syncPromoHeight(){
+    const bar=document.getElementById('promo-bar');
+    const h = (bar && !bar.classList.contains('hidden')) ? bar.offsetHeight : 0;
+    document.documentElement.style.setProperty('--promo-h', h+'px');
+  }
+  syncPromoHeight();
+  window.addEventListener('resize', syncPromoHeight);
   document.getElementById('promo-close')?.addEventListener('click',()=>{
     document.getElementById('promo-bar')?.classList.add('hidden');
+    syncPromoHeight();
   });
 
   /* NAVBAR SCROLL */

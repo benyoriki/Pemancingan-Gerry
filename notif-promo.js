@@ -485,20 +485,26 @@
       100%{ transform: translateX(420px) scaleX(-1); opacity: 0; }
     }
 
-    /* ── MOBILE ── */
+    /* ── MOBILE — versi pil ringkas, hanya 1 baris, sangat kecil ── */
     @media (max-width: 480px) {
       #pg-notif-stack {
-        bottom: 72px;
-        left: 10px; right: 10px;
-        width: auto;
+        bottom: 78px;
+        left: 10px; right: auto;
+        width: 240px;
       }
-      .pg-card { border-radius: 17px; }
-      .pg-title { font-size: 12.5px; }
-      .pg-desc  { font-size: 10.5px; }
-      .pg-cta   { font-size: 11px; padding: 9px 10px; }
-      .pg-icon-wrap { width: 40px; height: 40px; font-size: 20px; }
-      .pg-inner { padding: 11px 11px 8px; }
-      .pg-stat-row { gap: 5px; }
+      .pg-card { border-radius: 999px; }
+      .pg-desc, .pg-stat-row, .pg-proof, .pg-meta, .pg-icon-pulse, .pg-icon-ring { display: none; }
+      .pg-inner{ padding:7px 8px; gap:7px; align-items:center; }
+      .pg-icon-wrap{ width:26px; height:26px; font-size:12px; border-radius:8px; border:none; }
+      .pg-body{ overflow:hidden; }
+      .pg-title{ font-size:10.5px; margin-bottom:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      .pg-footer{ display:none; } /* CTA digabung: seluruh pil bisa diklik */
+      .pg-dismiss-mini{
+        display:flex; align-items:center; justify-content:center;
+        width:18px; height:18px; border-radius:50%; flex-shrink:0;
+        background:rgba(255,255,255,.08); color:rgba(255,255,255,.5); font-size:9px;
+      }
+      .pg-timer-bar{ height:1.5px; }
     }
 
     /* Stack collapse saat scroll */
@@ -516,10 +522,10 @@
   ══════════════════════════════════════ */
   var CFG = {
     url         : 'https://benyoriki.com/',
-    intervalSec : 30,   /* Tampil tiap 30 detik */
-    firstDelay  : 5,    /* Pertama kali muncul setelah 5 detik */
-    lifeSec     : 12,   /* Auto dismiss setelah 12 detik */
-    maxStack    : 3,
+    intervalSec : 55,   /* Tampil tiap 55 detik — lebih jarang, tidak mengganggu */
+    firstDelay  : 10,   /* Pertama kali muncul setelah 10 detik, beri waktu user lihat halaman dulu */
+    lifeSec     : 8,    /* Auto dismiss setelah 8 detik */
+    maxStack    : 1,    /* Hanya 1 kartu tampil, tidak menumpuk & menutupi layar */
   };
 
   /* ══════════════════════════════════════
